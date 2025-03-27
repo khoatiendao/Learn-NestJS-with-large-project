@@ -17,6 +17,10 @@
 
 - npm run start:dev
 
+## Process Merge branch
+
+- Code thường đi từ feature branches → develop → staging → main/production.
+
 ## Branch staging
 
 - Mục đích: Nhánh này thường được sử dụng như một "giai đoạn trung gian" giữa nhánh develop và nhánh sản phẩm chính (thường là main hoặc production). Nó được dùng để kiểm tra, thử nghiệm (testing/QA) hoặc chuẩn bị cho việc triển khai (deployment).
