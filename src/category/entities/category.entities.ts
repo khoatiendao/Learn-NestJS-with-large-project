@@ -6,5 +6,7 @@ export class Category extends BaseEntity {
     id: number;
 
     @Column({name: 'name', length: 255})
-    name: string;    
+    name: string;
+
+    
 }
