@@ -4,9 +4,16 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
+import { WareHouseHeadModule } from './warehouse-head/warehouse-head.module';
+import { User } from './user/entity/user.entity';
+import { WareHouseHead } from './warehouse-head/entity/warehouse-head.entity';
 
 @Module({
   imports: [
+    TypeOrmModule.forFeature([
+      User,
+      WareHouseHead
+    ]),
     ConfigModule.forRoot({
       isGlobal: true,
     }),
@@ -25,6 +32,7 @@ import { UserModule } from './user/user.module';
       }),
     }),
     UserModule,
+    WareHouseHeadModule
   ],
   controllers: [AppController],
   providers: [AppService],
