@@ -13,7 +13,7 @@ export class UserService {
     ) {}
 
     async register(dto: UserDto) {
-            
+        const {email, password} = dto;
         const findEmail = await this.userRepository.findOne({
             where: {email: email}
         });
