@@ -50,51 +50,51 @@ jobs:
             -d "{\"content\":\":x: Build nestJS failed PR latest\"}" \
             ${{ secrets.DISCORD_WEBHOOK_URL }}
   
-#   build-and-deploy:
-#     runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-#       - name: Notify Discord - Deploy Started
-#         run: |
-#           curl -X POST -H "Content-Type: application/json" \
-#             -d "{\"content\":\":rocket: Deploy started on \`dev\`\"}" \
-#             ${{ secrets.DISCORD_WEBHOOK_URL }}
+      - name: Notify Discord - Deploy Started
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+            -d "{\"content\":\":rocket: Deploy started on \`dev\`\"}" \
+            ${{ secrets.DISCORD_WEBHOOK_URL }}
 
-#       - name: Trigger Render Deploy
-#         run: |
-#           curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+      - name: Trigger Render Deploy
+        run: |
+          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
         
-#       - name: Wait and Check Health
-#         run: |
-#           echo "Waiting for app to start..."
-#           for i in {1..30}; do
-#             STATUS=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.HTTP_HEALTHCHEZ }}")
+      - name: Wait and Check Health
+        run: |
+          echo "Waiting for app to start..."
+          for i in {1..30}; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.HTTP_HEALTHCHEZ }}")
 
-#             if [ "$STATUS" -eq 200 ]; then
-#               echo "✅ Health check passed"
-#               exit 0
-#             else
-#               echo "❌ Health check failed (HTTP $STATUS), retrying in 10s..."
-#               sleep 10
-#             fi
-#             done
+            if [ "$STATUS" -eq 200 ]; then
+              echo "✅ Health check passed"
+              exit 0
+            else
+              echo "❌ Health check failed (HTTP $STATUS), retrying in 10s..."
+              sleep 10
+            fi
+            done
 
-#           echo "🚨 App failed health check after timeout"
-#           exit 1
+          echo "🚨 App failed health check after timeout"
+          exit 1
 
-#       - name: Notify Discord - Deploy Success
-#         if: success()
-#         run: |
-#           curl -X POST -H "Content-Type: application/json" \
-#             -d "{\"content\":\":white_check_mark: Render deploy success!\"}" \
-#             ${{ secrets.DISCORD_WEBHOOK_URL }}
+      - name: Notify Discord - Deploy Success
+        if: success()
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+            -d "{\"content\":\":white_check_mark: Render deploy success!\"}" \
+            ${{ secrets.DISCORD_WEBHOOK_URL }}
 
-#       - name: Notify Discord - Deploy Failed
-#         if: failure()
-#         run: |
-#           curl -X POST -H "Content-Type: application/json" \
-#             -d "{\"content\":\":x: Render deploy failed!\"}" \
-#             ${{ secrets.DISCORD_WEBHOOK_URL }}
+      - name: Notify Discord - Deploy Failed
+        if: failure()
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+            -d "{\"content\":\":x: Render deploy failed!\"}" \
+            ${{ secrets.DISCORD_WEBHOOK_URL }}
