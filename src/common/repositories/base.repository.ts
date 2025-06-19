@@ -1,4 +1,4 @@
-import { DataSource, EntityTarget, FindOneOptions, ObjectLiteral, Repository } from "typeorm";
+import { DataSource, EntityTarget, FindManyOptions, FindOneOptions, FindOptions, ObjectLiteral, Repository } from "typeorm";
 
 export abstract class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
     constructor(entity: EntityTarget<T>, dataSource: DataSource) { 
@@ -7,5 +7,9 @@ export abstract class BaseRepository<T extends ObjectLiteral> extends Repository
 
     async findFirst(options: FindOneOptions<T>) {
         return super.findOne(options);
+    }
+
+    async findAll(options: FindManyOptions<T>) {
+        return super.find(options);
     }
 }
