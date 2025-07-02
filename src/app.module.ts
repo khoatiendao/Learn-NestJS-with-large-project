@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { WareHouseHeadModule } from './warehouse-head/warehouse-head.module';
 import { User } from './user/entity/user.entity';
 import { WareHouseHead } from './warehouse-head/entity/warehouse-head.entity';
+import { CategoryModule } from './category/category.module';
 
 @Module({
   imports: [
@@ -32,7 +33,8 @@ import { WareHouseHead } from './warehouse-head/entity/warehouse-head.entity';
       }),
     }),
     UserModule,
-    WareHouseHeadModule
+    WareHouseHeadModule,
+    CategoryModule
   ],
   controllers: [AppController],
   providers: [AppService],

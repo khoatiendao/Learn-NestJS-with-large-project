@@ -1,9 +1,4 @@
-import { BaseRepository } from "src/common/repositories/base.repository";
-import { DataSource } from "typeorm";
+import { Repository } from "typeorm";
 import { Category } from "../entities/category.entities";
 
-export class CategoryRepository extends BaseRepository<Category> {
-    constructor(dataSource: DataSource) {
-        super(Category, dataSource)        
-    }
-}
+export class CategoryRepository extends Repository<Category> {}
