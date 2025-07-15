@@ -2,7 +2,7 @@
 FROM node:20
 
 # Set the working directory in the container
-WORKDIR /usr/src/app
+WORKDIR /dist/main.js
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -17,4 +17,4 @@ COPY . .
 RUN npm run build
 
 # Run the application
-CMD ["node", "dist/main.js"]
+CMD ["node", ""]
