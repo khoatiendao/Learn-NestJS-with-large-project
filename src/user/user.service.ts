@@ -8,21 +8,22 @@ import { HASH_ROUND } from 'src/common/constants/global.constants';
 export class UserService {
 
     constructor(
-        private readonly userRepository: UserRepository,
+        private userRepository: UserRepository,
         private encryptService: EncryptService,
     ) {}
 
     async register(dto: UserDto) {
         const {email, password} = dto;
-        const findEmail = await this.userRepository.findOne({
-            where: {email: email}
-        });
-        if(findEmail) {
-            throw new UnauthorizedException({message: 'Email exists'})
-        }
+        // const findEmail = await this.userRepository.findOne({
+        //     where: {email: email}
+        // });
+        // if(findEmail) {
+        //     throw new UnauthorizedException({message: 'Email exists'})
+        // }
         const encryptPassword = this.encryptService.encryptText(password, HASH_ROUND)
         const newDto = {email, encryptPassword};
-        return await this.userRepository.save(newDto);
+        const createUser = this.userRepository.create(newDto);
+        return createUser;
     }
 
     async login(dto: UserDto) {

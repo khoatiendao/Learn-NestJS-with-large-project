@@ -1,4 +1,4 @@
-import { Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { UserDto } from './dto/req/user.dto.req';
 import { UserService } from './user.service';
@@ -12,7 +12,8 @@ export class UserController {
     ) {}
 
     @Post('/register')
-    async register(dto: UserDto) {
+    async register(
+        @Body() dto: UserDto) {
         return this.userService.register(dto)
     }
 
