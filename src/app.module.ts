@@ -8,6 +8,7 @@ import { WareHouseHeadModule } from './warehouse-head/warehouse-head.module';
 import { User } from './user/entity/user.entity';
 import { WareHouseHead } from './warehouse-head/entity/warehouse-head.entity';
 import { CategoryModule } from './category/category.module';
+import { GameLuckyWeelModule } from './game-lucky-weel/game-lucky-weel.module';
 
 @Module({
   imports: [
@@ -30,11 +31,14 @@ import { CategoryModule } from './category/category.module';
         database: configService.get<string>('DB_NAME'),
         autoLoadEntities: true,
         synchronize: true,
+        migrations: ['dist/migrations/*.js'], // Đường dẫn đến các file migration
+        migrationsRun: false,
       }),
     }),
     UserModule,
     WareHouseHeadModule,
-    CategoryModule
+    CategoryModule,
+    GameLuckyWeelModule
   ],
   controllers: [AppController],
   providers: [AppService],

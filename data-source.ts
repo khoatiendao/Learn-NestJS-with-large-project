@@ -1,8 +1,8 @@
 
 import 'dotenv/config';
-import { AppEnvironment } from 'src/common/enums/app.enums';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+import { AppEnvironment } from './src/common/enums/app.enums';
 
 let config: DataSourceOptions & PostgresConnectionOptions = {
     type: 'postgres',
