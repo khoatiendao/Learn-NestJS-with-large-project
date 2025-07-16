@@ -1,6 +1,6 @@
 import { BaseEntity } from "src/common/entities/base.entity";
 import { User } from "src/user/entity/user.entity";
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { GameLuckyWeelEntity } from "./game-lucky-weel.entity";
 import { PrizeEntity } from "./prize.entity";
 
@@ -10,12 +10,15 @@ export class SpinHistoryEntity extends BaseEntity {
     id: number;
 
     @ManyToOne(() => User, (user) => user.spinHistory)
+    @JoinColumn({ name: 'user_id' }) // Thêm JoinColumn
     user: User;
 
     @ManyToOne(() => GameLuckyWeelEntity)
+    @JoinColumn({ name: 'wheel_id' })
     wheel: GameLuckyWeelEntity;
 
     @ManyToOne(() => PrizeEntity, { nullable: true })
+    @JoinColumn({ name: 'prize_id' })
     prize: PrizeEntity;
 
     @CreateDateColumn()

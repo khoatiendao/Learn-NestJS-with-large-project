@@ -1,5 +1,5 @@
-import { SpinHistoryEntity } from "src/game-lucky-weel/entities/spin-history.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { SpinHistoryEntity } from '../../game-lucky-weel/entities/spin-history.entity';
 
 @Entity({name: 'user'})
 export class User {
@@ -16,5 +16,6 @@ export class User {
     spinCount: number;
 
     @OneToMany(() => SpinHistoryEntity, (spinHistory) => spinHistory.user)
-    spinHistory: SpinHistoryEntity[];
+    @JoinColumn({name: 'spin_history'})
+    spinHistory: SpinHistoryEntity[];    
 }
