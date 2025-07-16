@@ -2,7 +2,7 @@
 FROM node:20
 
 # Set working directory
-WORKDIR /usr/src/app
+WORKDIR /travel/myapp/dist/src
 
 # Copy package files
 COPY package*.json ./
@@ -17,4 +17,4 @@ COPY . .
 RUN npm run build
 
 # Default command
-CMD ["node", "start:prod"]
+CMD ["node", "main.js"]
