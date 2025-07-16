@@ -1,18 +1,20 @@
-FROM node:20-alpine
+# Use Node.js version 20 as the base image
+FROM node:20
 
+# Set working directory
 WORKDIR /usr/src/app
 
+# Copy package files
 COPY package*.json ./
-RUN npm ci --only=production
 
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the app
 COPY . .
+
+# Build the application
 RUN npm run build
 
-# Debug: List files in dist directory
-RUN ls -la dist/
-
-# Expose port
-EXPOSE 3000
-
-# Start với đường dẫn chính xác
-CMD ["node", "dist/src/main"]
+# Default command
+CMD ["node", "dist/src/main.js"]
