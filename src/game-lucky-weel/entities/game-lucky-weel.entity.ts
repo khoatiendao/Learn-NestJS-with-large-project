@@ -1,5 +1,5 @@
 import { BaseEntity } from "src/common/entities/base.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { PrizeEntity } from "./prize.entity";
 
 @Entity({name: 'lucky-wheel'})
@@ -11,5 +11,6 @@ export class GameLuckyWeelEntity extends BaseEntity {
     name: string;
 
     @OneToMany(() => PrizeEntity, (prize) => prize.wheel)
+    @JoinColumn({name: 'prizes'})
     prizes: PrizeEntity[]
 }

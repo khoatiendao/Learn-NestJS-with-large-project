@@ -29,8 +29,9 @@ import { GameLuckyWeelModule } from './game-lucky-weel/game-lucky-weel.module';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
+        entities: [__dirname + '/**/*.entity{.ts,.js}'],
         autoLoadEntities: true,
-        synchronize: true,
+        synchronize: false,
         migrations: ['dist/migrations/*.js'], // Đường dẫn đến các file migration
         migrationsRun: false,
       }),
