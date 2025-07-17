@@ -1,4 +1,4 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty, PartialType } from "@nestjs/swagger";
 import { Transform } from "class-transformer";
 import { IsNumber, IsString, Max, Min } from "class-validator";
 import { PaginationReqDto } from "src/common/dtos/pagination.dto";
@@ -31,4 +31,12 @@ export class PrizeCreateReqDto {
     wheelId: number;
 }
 
-export class PrizeReqDto extends PaginationReqDto {}
+export class UpdatePrizeReqDto extends PartialType(
+    PrizeCreateReqDto
+) { }
+
+export class PrizeReqDto extends PaginationReqDto {
+    @IsString()
+    @ApiProperty()
+    name: string;
+}
