@@ -1,7 +1,7 @@
 import { BaseEntity } from "src/common/entities/base.entity";
 import { User } from "src/user/entity/user.entity";
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { GameLuckyWeelEntity } from "./game-lucky-weel.entity";
+import { GameLuckyWeelEntity } from "../../game-lucky-weel/entities/game-lucky-weel.entity";
 import { PrizeEntity } from "src/prize/entity/prize.entity";
 
 @Entity({name: 'spin_history'})

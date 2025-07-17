@@ -4,7 +4,7 @@ import { PrizeService } from "../service/prizes.service";
 import { PrizeCreateReqDto } from "../dto/req/prize.req.dto";
 
 @Controller('admin/prize')
-@ApiTags('Prize Admin')
+@ApiTags('Admin Prize History Manage')
 export class PrizesController {
     constructor(
         private readonly prizeSerivce: PrizeService
