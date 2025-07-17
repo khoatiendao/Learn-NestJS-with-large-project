@@ -10,6 +10,7 @@ import { WareHouseHead } from './warehouse-head/entity/warehouse-head.entity';
 import { CategoryModule } from './category/category.module';
 import { GameLuckyWeelModule } from './game-lucky-weel/game-lucky-weel.module';
 import { PrizeModule } from './prize/prize.module';
+import { SpinHistoryModule } from './spin-history/spin-history.module';
 
 @Module({
   imports: [
@@ -41,7 +42,8 @@ import { PrizeModule } from './prize/prize.module';
     WareHouseHeadModule,
     CategoryModule,
     GameLuckyWeelModule,
-    PrizeModule
+    PrizeModule,
+    SpinHistoryModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,5 +1,5 @@
 import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { SpinHistoryEntity } from '../../game-lucky-weel/entities/spin-history.entity';
+import { SpinHistoryEntity } from '../../spin-history/entity/spin-history.entity';
 
 @Entity({name: 'user'})
 export class User {

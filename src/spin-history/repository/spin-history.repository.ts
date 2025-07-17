@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { BaseRepository } from "src/common/repositories/base.repository";
-import { SpinHistoryEntity } from "../entities/spin-history.entity";
+import { SpinHistoryEntity } from "../entity/spin-history.entity";
 import { DataSource } from "typeorm";
 
 @Injectable()
