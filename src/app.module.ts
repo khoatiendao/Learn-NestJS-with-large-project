@@ -9,6 +9,7 @@ import { User } from './user/entity/user.entity';
 import { WareHouseHead } from './warehouse-head/entity/warehouse-head.entity';
 import { CategoryModule } from './category/category.module';
 import { GameLuckyWeelModule } from './game-lucky-weel/game-lucky-weel.module';
+import { PrizeModule } from './prize/prize.module';
 
 @Module({
   imports: [
@@ -39,7 +40,8 @@ import { GameLuckyWeelModule } from './game-lucky-weel/game-lucky-weel.module';
     UserModule,
     WareHouseHeadModule,
     CategoryModule,
-    GameLuckyWeelModule
+    GameLuckyWeelModule,
+    PrizeModule
   ],
   controllers: [AppController],
   providers: [AppService],

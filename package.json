@@ -42,6 +42,7 @@
     "i18next-fs-backend": "^2.6.0",
     "learn-nest": "file:",
     "nestjs-i18n": "^10.5.1",
+    "nestjs-typeorm-paginate": "^4.1.0",
     "pg": "^8.16.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",

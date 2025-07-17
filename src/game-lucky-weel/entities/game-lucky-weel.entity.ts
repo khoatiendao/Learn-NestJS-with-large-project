@@ -1,6 +1,6 @@
 import { BaseEntity } from "src/common/entities/base.entity";
+import { PrizeEntity } from "src/prize/entity/prize.entity";
 import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { PrizeEntity } from "./prize.entity";
 
 @Entity({name: 'lucky-wheel'})
 export class GameLuckyWeelEntity extends BaseEntity {
